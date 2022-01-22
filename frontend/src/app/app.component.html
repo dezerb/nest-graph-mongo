@@ -1,0 +1,25 @@
+<div class="browse">
+  <h1>Browse Characters</h1>
+<!--  <form (keyup.enter)="updateUsers($event)">-->
+    <input [(ngModel)]="name" (keyup.enter)="updateUsers()"/>
+<!--  </form>-->
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Last name</th>
+      <th>age</th>
+      <th>articles</th>
+    </tr>
+    <tr *ngFor="let user of users">
+      <td>{{user.name}}</td>
+      <td>{{user.lastName}}</td>
+      <td>{{user.age}}</td>
+      <td>
+        <ul *ngFor="let article of user.articles">
+          <li>{{article.name}}</li>
+          <li>{{article.content}}</li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+</div>
