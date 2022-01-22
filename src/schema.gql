@@ -1,0 +1,62 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Article {
+  _id: String!
+  content: String
+  name: String
+}
+
+input CreateArticleInput {
+  content: String!
+  name: String!
+}
+
+input CreateUserInput {
+  """Example field (placeholder)"""
+  age: Int!
+  articles: [String!]!
+  lastName: String!
+  name: String!
+}
+
+type Mutation {
+  createArticle(createArticleInput: CreateArticleInput!): Article!
+  createUser(createUserInput: CreateUserInput!): User!
+  removeArticle(id: Int!): Article!
+  removeUser(id: Int!): User!
+  updateArticle(updateArticleInput: UpdateArticleInput!): Article!
+  updateUser(updateUserInput: UpdateUserInput!): User!
+}
+
+type Query {
+  article(id: Int!): Article!
+  articles: [Article!]!
+  filter(age: Int, lastName: String, name: String): [User!]!
+  user(id: Int!): User!
+  users: [User!]!
+}
+
+input UpdateArticleInput {
+  content: String!
+  id: String!
+  name: String!
+}
+
+input UpdateUserInput {
+  """Example field (placeholder)"""
+  age: Int
+  articles: [String!]
+  id: [String!]!
+  lastName: String
+  name: String
+}
+
+type User {
+  _id: String!
+  age: Int
+  articles(populate: Boolean!): [Article!]
+  lastName: String
+  name: String
+}
